@@ -6,4 +6,6 @@ The folder named "spring-boot-mongodb-hospital" contains the backend of the appl
 
 To sign in, valid users are either "user1" or "user2" and both have "root" as password or a new user can be created.
 
-In the main menu, only the patients option is implemented in the present version. The /patients option. Enables the user to get, create, update, and delete patients and their history notes.
+In the main menu, only the patients option is implemented in the present version. The /patients option. Enables the user to get, create, update, search by the beginning of the first name or last name and delete patients and their history notes.
+
+The main menu con search hospital by name, create them or delete them with the trash icon.
