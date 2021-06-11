@@ -1,6 +1,7 @@
 package com.andres.ortiz.springbootmongodbhospital.controller;
 
 import com.andres.ortiz.springbootmongodbhospital.model.Hospital;
+import com.andres.ortiz.springbootmongodbhospital.model.Patient;
 import com.andres.ortiz.springbootmongodbhospital.service.HospitalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,15 +19,13 @@ public class HospitalController {
     private final HospitalService hospitalService;
 
     @PostMapping
-    public ResponseEntity addHospital(@RequestBody Hospital hospital){
-        hospitalService.addHospital(hospital);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<Hospital> addHospital(@RequestBody Hospital hospital){
+        return ResponseEntity.ok(hospitalService.addHospital(hospital));
     }
 
     @PatchMapping
     public ResponseEntity updateHospital(@RequestBody Hospital hospital) {
-        hospitalService.updateHospital(hospital);
-        return ResponseEntity.status(HttpStatus.OK).build();
+        return ResponseEntity.ok(hospitalService.updateHospital(hospital));
     }
 
     @GetMapping
@@ -37,6 +36,11 @@ public class HospitalController {
     @GetMapping("getById/{id}")
     public ResponseEntity getById(@PathVariable String id){
         return ResponseEntity.ok(hospitalService.getById(id));
+    }
+
+    @GetMapping("getByTitle/{title}")
+    public ResponseEntity<List<Hospital>> findByTitleStartsWith(@PathVariable String title){
+        return ResponseEntity.ok(hospitalService.findByTitleStartsWith(title));
     }
 
     @DeleteMapping("/{id}")

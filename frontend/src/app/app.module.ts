@@ -12,7 +12,8 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { EditPatientComponent } from './pages/edit-patient/edit-patient.component';
 import { EditHistoryComponent } from './pages/edit-history/edit-history.component';
-import { MainPageComponent } from './pages/main-page/main-page.component'
+import { MainPageComponent } from './pages/main-page/main-page.component';
+import { NewHospitalComponent } from './pages/new-hospital/new-hospital.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MainPageComponent } from './pages/main-page/main-page.component'
     SignupPageComponent,
     EditPatientComponent,
     EditHistoryComponent,
-    MainPageComponent
+    MainPageComponent,
+    NewHospitalComponent
   ],
   imports: [
     BrowserModule,

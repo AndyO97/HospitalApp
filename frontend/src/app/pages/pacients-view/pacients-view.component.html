@@ -11,6 +11,27 @@
             Pacientes
             </h1>
 
+            <div class="field">
+                <div class="search">
+                    <p class="control has-icons-left">
+                        <input #SearchFirstNameInput class="input has-background-light" type="search" placeholder="Nombre">
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-search"></i>
+                        </span>
+                      </p>
+                      <button class="button is-primary has-text-white" (click)="onSearchPatientsFirstNameClick(SearchFirstNameInput.value)">Buscar</button>
+                </div>
+                <div class="search">
+                    <p class="control has-icons-left">
+                        <input #SearchLastNameInput class="input has-background-light" type="search" placeholder="Apellido">
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-search"></i>
+                        </span>
+                      </p>
+                      <button class="button is-primary has-text-white" (click)="onSearchPatientsLastNameClick(SearchLastNameInput.value)">Buscar</button>
+                </div>
+            </div>
+
             <div class="list-menu">
                 <a class="list-menu-item" *ngFor="let patient of patients" [routerLink]="['/patients', patient.id]" routerLinkActive="is-active">
                     <p>{{ patient.firstName}} {{ patient.lastName}}</p>

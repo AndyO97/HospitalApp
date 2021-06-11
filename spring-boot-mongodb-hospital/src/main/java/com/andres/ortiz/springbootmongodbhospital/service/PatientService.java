@@ -1,5 +1,6 @@
 package com.andres.ortiz.springbootmongodbhospital.service;
 
+import com.andres.ortiz.springbootmongodbhospital.model.History;
 import com.andres.ortiz.springbootmongodbhospital.model.Patient;
 import com.andres.ortiz.springbootmongodbhospital.repository.PatientRepository;
 import lombok.RequiredArgsConstructor;
@@ -55,6 +56,15 @@ public class PatientService {
         return patientRepository.findById(id).orElseThrow(()->new RuntimeException(
                 String.format("Cannot Find Patient by id %s", id)));
     }
+
+    public List<Patient> getByFirstName(String firstName){
+        return patientRepository.findByFirstNameStartsWith(firstName);
+    }
+
+    public List<Patient> getByLastName(String lastName){
+        return patientRepository.findByLastNameStartsWith(lastName);
+    }
+
     public void deletePatient(String id){
         patientRepository.deleteById(id);
     }

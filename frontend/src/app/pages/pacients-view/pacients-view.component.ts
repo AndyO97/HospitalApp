@@ -42,6 +42,20 @@ export class PacientsViewComponent implements OnInit {
     })
   }
 
+  onSearchPatientsFirstNameClick(firstName: string){
+    this.historyService.searchPatientsByFirstName(firstName).subscribe((patients: any) => {
+      console.log(patients);
+      this.patients = patients;
+    })
+  }
+
+  onSearchPatientsLastNameClick(lastName: string){
+    this.historyService.searchPatientsByLastName(lastName).subscribe((patients: any) => {
+      console.log(patients);
+      this.patients = patients;
+    })
+  }
+
   onDeletePatientClick(){
     this.historyService.deletePatient(this.selectedPatientId).subscribe((res :any)=>{
       this.router.navigate(['/patients']);

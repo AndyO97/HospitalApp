@@ -11,4 +11,9 @@ import java.util.Optional;
 public interface PatientRepository extends MongoRepository<Patient, String>{
     @Query("{id: ?0}")
     Optional<Patient> findById(String id);
+
+    List<Patient> findByFirstNameStartsWith(String firstName);
+
+    List<Patient> findByLastNameStartsWith(String lastName);
+
 }

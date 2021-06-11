@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
 
-    width: 280px;
+    width: 400px;
     background: white;
     padding: 42px;
 
@@ -51,6 +51,11 @@
     font-size: 22px;
     text-transform: uppercase;
     letter-spacing: 2px;
+}
+
+.search{
+    display: flex;
+
 }
 
 .list-menu{

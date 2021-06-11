@@ -6,15 +6,36 @@
             Lista de Hospitales
             </h1>
 
+            <div class="field">
+                <div class="search">
+                    <p class="control has-icons-left">
+                        <input #SearchNameInput class="input has-background-light" type="search" placeholder="Nombre">
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-search"></i>
+                        </span>
+                      </p>
+                      <button class="button is-primary has-text-white" (click)="onSearchHospitalsNameClick(SearchNameInput.value)">Buscar</button>
+                </div>
+            </div>
             <div class="list-menu">
+                <a class="list-menu-item" *ngFor="let hospital of hospitals" [routerLink]="['/main', hospital.id]" routerLinkActive="is-active">
+                    <p>{{ hospital.title}} </p>
+                    <br>
+                    <br>
+                    <br>
+                        <div class="icon" (click)="onDeleteHospitalClick(hospital.id)">
+                            <i class="fas fa-trash"></i>
+                        </div>
+                    
+                </a>
                
             </div>
-            <button class="button is-primary has-text-white">+Nuevo Hospital</button>
+            <button class="button is-primary has-text-white" routerLink="/new-hospital">+Nuevo Hospital</button>
         </div>
 
   
         <div class="history-list-container has-background-light">
-            <div class="history" (click)="alerta('Esta funcion todavía no esta implementada. Da click en pacientes para ver tener una idea de como sería esta sección')">
+            <div class="history" (click)="alerta('Esta función todavía no esta implementada. Da click en -Pacientes- para tener una idea de como sería esta sección')">
                 <div class="history-text">
                     <p> Doctores </p>
                 </div>
@@ -24,7 +45,7 @@
                     <p> Pacientes </p>
                 </div>
             </div>
-            <div class="history" (click)="alerta('Esta funcion todavía no esta implementada. Da click en pacientes para ver tener una idea de como sería esta sección')">
+            <div class="history" (click)="alerta('Esta función todavía no esta implementada. Da click en -Pacientes- para tener una idea de como sería esta sección')">
                 <div class="history-text">
                     <p> Especialidades </p>
                 </div>

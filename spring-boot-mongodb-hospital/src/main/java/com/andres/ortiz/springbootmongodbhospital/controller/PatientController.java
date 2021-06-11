@@ -1,5 +1,6 @@
 package com.andres.ortiz.springbootmongodbhospital.controller;
 
+import com.andres.ortiz.springbootmongodbhospital.model.History;
 import com.andres.ortiz.springbootmongodbhospital.model.Patient;
 import com.andres.ortiz.springbootmongodbhospital.service.PatientService;
 import lombok.RequiredArgsConstructor;
@@ -36,6 +37,16 @@ public class PatientController {
     @GetMapping("getById/{id}")
     public ResponseEntity getById(@PathVariable String id){
         return ResponseEntity.ok(patientService.getById(id));
+    }
+
+    @GetMapping("getByFirstName/{firstName}")
+    public ResponseEntity<List<Patient>> getByFirstName(@PathVariable String firstName){
+        return ResponseEntity.ok(patientService.getByFirstName(firstName));
+    }
+
+    @GetMapping("getByLastName/{lastName}")
+    public ResponseEntity<List<Patient>> getByLastName(@PathVariable String lastName){
+        return ResponseEntity.ok(patientService.getByLastName(lastName));
     }
 
     @DeleteMapping("/{id}")

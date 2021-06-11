@@ -10,11 +10,11 @@ import {AuthService} from 'src/app/auth.service'
 })
 export class NewHistoryComponent implements OnInit {
 
+  patientId: string;
+
   constructor(private authService: AuthService, private historyService: HistoryService, private route: ActivatedRoute, private router: Router ) { 
     this.patientId='';
   }
-
-  patientId: string;
 
   ngOnInit(){
     this.route.params.subscribe(

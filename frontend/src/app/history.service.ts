@@ -15,6 +15,18 @@ export class HistoryService {
     return this.webReqService.get('patients');
   }
 
+  getHospitals(){
+    return this.webReqService.get('hospitals');
+  }
+
+  searchPatientsByFirstName(firstName: string){
+    return this.webReqService.get(`patients/getByFirstName/${firstName}`);
+  }
+
+  searchPatientsByLastName(lastName: string){
+    return this.webReqService.get(`patients/getByLastName/${lastName}`);
+  }
+
   createPatient(firstName: string, lastName: string, birthdayYear: number, birthdayMonth: number, birthdayDay: number, address: string, pictureUrl: string,
     creationDate: Date, lastUpdate: Date,createdbyId: string, updatedbyId: string, hospitalId: string[], doctorId: string[]) {
       var birthday = new Date(birthdayYear, birthdayMonth-1, birthdayDay, 0,0,0)
@@ -36,7 +48,7 @@ export class HistoryService {
   }
 
   getHistory(patientId: string){
-    return this.webReqService.get(`history/getByPatientId/${patientId}`)
+    return this.webReqService.get(`history/getByPatientId/${patientId}`);
   }
 
   createHistory(description: string, userDateYear: number, userDateMonth: number, userDateDay: number,
@@ -59,5 +71,18 @@ export class HistoryService {
     return this.webReqService.delete(`history/${id}`);
   }
 
+  createHospital(title: string, creationDate: Date, lastUpdate: Date, createdbyId: String, updatedbyId: String, patientId: string[], doctorId: string[]){
+    // We want to send a web request to create a hospital
+    return this.webReqService.post('hospitals', { title,
+      creationDate, lastUpdate,createdbyId, updatedbyId, patientId, doctorId}); 
+  }
+
+  searchHospitalsByTitle(title: string){
+    return this.webReqService.get(`hospitals/getByTitle/${title}`);
+  }
+
+  deleteHospital(id: string){
+    return this.webReqService.delete(`hospitals/${id}`);
+  }
 
 }
