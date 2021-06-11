@@ -1,0 +1,21 @@
+<div class="centered-content">
+    <div class="modal-box">
+        <h1 class="title">
+            Crear un nuevo Historial de notas
+        </h1>
+
+        <input #HistoryDescriptionInput class="input has-background-light is-medium" type="text" placeholder="Ingrese la descripción de la nota">
+        <br><br>
+        <input #HistoryYearInput class="input has-background-light is-small" type="text" placeholder="Ingrese el año de la nota">
+        <br><br>
+        <input #HistoryMonthInput class="input has-background-light is-small" type="text" placeholder="Ingrese el mes de la nota">
+        <br><br>
+        <input #HistoryDayInput class="input has-background-light is-small" type="text" placeholder="Ingrese el día de la nota">
+        <br><br>
+        <div class="buttons is-right">
+            <button class="button is-medium" routerLink="/patients">Cancelar</button>
+            <button class="button is-primary has-text-white is-medium" (click)="createHistory(HistoryDescriptionInput.value, HistoryYearInput.value, HistoryMonthInput.value, HistoryDayInput.value, 'guestId','guestId')">Crear</button>
+        </div>
+
+    </div>
+</div>

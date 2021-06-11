@@ -1,0 +1,87 @@
+<button class="button" routerLink="/main">
+    <span class="icon is-small">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      </span>
+</button>
+<div class="centered-content">
+    <div class="patients-manager-container">
+  
+        <div class="sidebar has-background-white">
+            <h1 class="title has-text-primary">
+            Pacientes
+            </h1>
+
+            <div class="list-menu">
+                <a class="list-menu-item" *ngFor="let patient of patients" [routerLink]="['/patients', patient.id]" routerLinkActive="is-active">
+                    <p>{{ patient.firstName}} {{ patient.lastName}}</p>
+                </a>
+
+            </div>
+            <button class="button is-primary has-text-white" routerLink="/new-patient">+Nuevo Paciente</button>
+        </div>
+
+  
+        <div class="history-list-container has-background-light">
+            <div *ngIf="history">
+                <div class="top-bar">
+                    <h1 class="title has-text-primary">
+                        Historial de Notas
+                    </h1>
+                    <div class="dropdown is-hoverable is-right">
+                        <div class="dropdown-trigger">
+                          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                            <span class="icon is-small">
+                              <i class="fas fa-cog" aria-hidden="true"></i>
+                            </span>
+                          </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                          <div class="dropdown-content">
+                            <a [routerLink]="['/edit-patient/', selectedPatientId]" class="dropdown-item">
+                              Editar paciente
+                            </a>
+                            <a (click)="onDeletePatientClick()" class="dropdown-item has-text-danger">
+                              Eliminar paciente
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                
+        
+                    <!--History Notes Elements-->
+                    <div class="history" *ngFor="let hist of history">
+                        <div class="history-text">
+                            <p>{{ hist.description}} </p>
+                            <br>
+                            <p>Creado por: {{hist.createdbyId}} Actualizado por: {{hist.updatedbyId}} Fecha: {{hist.userDate}} </p>
+                        </div>
+                        <div class="history-buttons" style="margin-right: 10px" [routerLink]="['/patients', selectedPatientId, 'edit-history', hist.id]">
+                            <button class="button">
+                                <div class="icon">
+                                    <i class="fas fa-edit"></i>
+                                </div>
+                            </button>
+                            <button class="button is-danger" (click)="onDeleteHistoryClick(hist.id)">
+                                <div class="icon">
+                                    <i class="fas fa-trash"></i>
+                                </div>
+                            </button>
+                            
+                        </div>
+                    </div>
+
+                    <h3 class="empty-state-text" *ngIf="history.length === 0">El paciente no tiene historial de notas. Aprete el boton "+" para agregar notas al paciente.</h3>
+        
+                    <button routerLink="./new-history" class="circle-add-button button is-primary">
+                        <img src="../../../assets/plus-icon.svg">
+                    </button>
+            </div>
+            <div *ngIf=!history>
+                <h3 class="empty-state-text">Por favor selecciona un paciente del menu izquierdo</h3>
+            </div>
+        
+        </div>
+  
+    </div>
+  </div>
