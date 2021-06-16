@@ -22,20 +22,32 @@ public class DoctorService {
     public Doctor updateDoctor(Doctor doctor) {
         Doctor savedDoctor = doctorRepository.findById(doctor.getId()).orElseThrow(() -> new RuntimeException(String.format("Cannot Find Doctor by ID %s", doctor.getId())));
 
-        savedDoctor.setFirstName(doctor.getFirstName());
-        savedDoctor.setLastName(doctor.getLastName());
-        savedDoctor.setBirthday(doctor.getBirthday());
-        savedDoctor.setAddress(doctor.getAddress());
-        savedDoctor.setPictureUrl(doctor.getPictureUrl());
-        savedDoctor.setCreationDate(doctor.getCreationDate());
-        savedDoctor.setLastUpdate(doctor.getLastUpdate());
-        savedDoctor.setCreatedbyId(doctor.getCreatedbyId());
-        savedDoctor.setUpdatedbyId(doctor.getUpdatedbyId());
-        savedDoctor.setSpecialityId(doctor.getSpecialityId());
-        savedDoctor.setHospitalId(doctor.getHospitalId());
-        savedDoctor.setPatientId(doctor.getPatientId());
+        if(doctor.getFirstName()!=null)
+            savedDoctor.setFirstName(doctor.getFirstName());
+        if(doctor.getLastName()!=null)
+            savedDoctor.setLastName(doctor.getLastName());
+        if(doctor.getBirthday()!=null)
+            savedDoctor.setBirthday(doctor.getBirthday());
+        if(doctor.getAddress()!=null)
+            savedDoctor.setAddress(doctor.getAddress());
+        if(doctor.getPictureUrl()!=null)
+            savedDoctor.setPictureUrl(doctor.getPictureUrl());
+        if(doctor.getCreationDate()!=null)
+            savedDoctor.setCreationDate(doctor.getCreationDate());
+        if(doctor.getLastUpdate()!=null)
+            savedDoctor.setLastUpdate(doctor.getLastUpdate());
+        if(doctor.getCreatedbyId()!=null)
+            savedDoctor.setCreatedbyId(doctor.getCreatedbyId());
+        if(doctor.getUpdatedbyId()!=null)
+            savedDoctor.setUpdatedbyId(doctor.getUpdatedbyId());
+        if(doctor.getSpecialityId()!=null && doctor.getSpecialityId().length!=0)
+            savedDoctor.setSpecialityId(doctor.getSpecialityId());
+        if(doctor.getHospitalId()!=null && doctor.getHospitalId().length!=0)
+            savedDoctor.setHospitalId(doctor.getHospitalId());
+        if(doctor.getPatientId()!=null && doctor.getPatientId().length!=0)
+            savedDoctor.setPatientId(doctor.getPatientId());
 
-        return doctorRepository.save(doctor);
+        return doctorRepository.save(savedDoctor);
     }
 
     public List<Doctor> getAllDoctors(){
@@ -44,6 +56,14 @@ public class DoctorService {
     public Doctor getById(String id){
         return doctorRepository.findById(id).orElseThrow(()->new RuntimeException(
                 String.format("Cannot Find Doctor by id %s", id)));
+    }
+
+    public List<Doctor> getByFirstName(String firstName){
+        return doctorRepository.findByFirstNameStartsWith(firstName);
+    }
+
+    public List<Doctor> getByLastName(String lastName){
+        return doctorRepository.findByLastNameStartsWith(lastName);
     }
     public void deleteDoctor(String id){
         doctorRepository.deleteById(id);

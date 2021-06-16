@@ -28,6 +28,11 @@ public class SpecialityController {
         return ResponseEntity.ok(specialityService.updateSpeciality(speciality));
     }
 
+    @PatchMapping("/updateByTitle")
+    public ResponseEntity<Speciality> updateSpecialityByTitle(@RequestBody Speciality speciality) {
+        return ResponseEntity.ok(specialityService.updateSpecialityByTitle(speciality));
+    }
+
     @GetMapping
     public ResponseEntity<List<Speciality>> getAllSpecialitys(){
         return ResponseEntity.ok(specialityService.getAllSpecialitys());
@@ -36,6 +41,11 @@ public class SpecialityController {
     @GetMapping("getById/{id}")
     public ResponseEntity getById(@PathVariable String id){
         return ResponseEntity.ok(specialityService.getById(id));
+    }
+
+    @GetMapping("getByDoctorId/{doctorId}")
+    public ResponseEntity<List<Speciality>> getByDoctorId(@PathVariable String doctorId){
+        return ResponseEntity.ok(specialityService.getByDoctorId(doctorId));
     }
 
     @DeleteMapping("/{id}")

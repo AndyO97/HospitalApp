@@ -1,0 +1,25 @@
+<div class="centered-content">
+    <div class="modal-box">
+        <h1 class="title">
+            Editar un doctor
+        </h1>
+
+        <input #DoctorFirstNameInput class="input has-background-light is-medium" type="text" placeholder="Ingrese el nombre del doctor">
+        <br><br>
+        <input #DoctorLastNameInput class="input has-background-light is-medium" type="text" placeholder="Ingrese el apellido del doctor">
+        <br><br>
+        <input #DoctorBirthdayYearInput class="input has-background-light is-small" type="text" placeholder="Ingrese el año de nacimiento">
+        <br><br>
+        <input #DoctorBirthdayMonthInput class="input has-background-light is-small" type="text" placeholder="Ingrese el mes de nacimiento">
+        <br><br>
+        <input #DoctorBirthdayDayInput class="input has-background-light is-small" type="text" placeholder="Ingrese el día de nacimiento">
+        <br><br>
+        <input #DoctorAddressInput class="input has-background-light is-medium" type="text" placeholder="Ingrese la dirección del doctor">
+        <br><br>
+        <div class="buttons is-right">
+            <button class="button is-medium" routerLink="/doctors">Cancelar</button>
+            <button class="button is-primary has-text-white is-medium" (click)="updateDoctor(DoctorFirstNameInput.value, DoctorLastNameInput.value, DoctorBirthdayYearInput.value, DoctorBirthdayMonthInput.value, DoctorBirthdayDayInput.value, DoctorAddressInput.value, 'imageurl.com','guestId')">Guardar</button>
+        </div>
+
+    </div>
+</div>

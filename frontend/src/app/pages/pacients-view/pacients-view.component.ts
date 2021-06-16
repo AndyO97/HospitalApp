@@ -18,7 +18,8 @@ export class PacientsViewComponent implements OnInit {
     this.selectedPatientId='';
    }
 
-  ngOnInit(){
+  ngOnInit(){ 
+    
     this.route.params.subscribe(
       (params: Params) => {
         console.log(params);

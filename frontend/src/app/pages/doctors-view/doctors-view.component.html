@@ -1,0 +1,98 @@
+<button class="button" routerLink="/main">
+    <span class="icon is-small">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      </span>
+</button>
+<div class="centered-content">
+    <div class="patients-manager-container">
+  
+        <div class="sidebar has-background-white">
+            <h1 class="title has-text-primary">
+            Doctores
+            </h1>
+
+            <div class="field">
+                <div class="search">
+                    <p class="control has-icons-left">
+                        <input #SearchFirstNameInput class="input has-background-light" type="search" placeholder="Nombre">
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-search"></i>
+                        </span>
+                      </p>
+                      <button class="button is-primary has-text-white" (click)="onSearchDoctorsFirstNameClick(SearchFirstNameInput.value)">Buscar</button>
+                </div>
+                <div class="search">
+                    <p class="control has-icons-left">
+                        <input #SearchLastNameInput class="input has-background-light" type="search" placeholder="Apellido">
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-search"></i>
+                        </span>
+                      </p>
+                      <button class="button is-primary has-text-white" (click)="onSearchDoctorsLastNameClick(SearchLastNameInput.value)">Buscar</button>
+                </div>
+            </div>
+
+            <div class="list-menu">
+                <a class="list-menu-item" *ngFor="let doctor of doctors" [routerLink]="['/doctors', doctor.id]" routerLinkActive="is-active">
+                    <p>{{ doctor.firstName}} {{ doctor.lastName}}</p>
+                </a>
+
+            </div>
+            <button class="button is-primary has-text-white" routerLink="/new-doctor">+Nuevo doctor</button>
+        </div>
+
+  
+        <div class="history-list-container has-background-light">
+            <div *ngIf="specialities">
+                <div class="top-bar">
+                    <h1 class="title has-text-primary">
+                        Especialidades
+                    </h1>
+                    <div class="dropdown is-hoverable is-right">
+                        <div class="dropdown-trigger">
+                          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                            <span class="icon is-small">
+                              <i class="fas fa-cog" aria-hidden="true"></i>
+                            </span>
+                          </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                          <div class="dropdown-content">
+                            <a [routerLink]="['/edit-doctor/', selectedDoctorId]" class="dropdown-item">
+                              Editar doctor
+                            </a>
+                            <a (click)="onDeleteDoctorClick()" class="dropdown-item has-text-danger">
+                              Eliminar doctor
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                
+        
+                    <!--Specialities Elements-->
+                    <div class="history" *ngFor="let speciality of specialities">
+                        <div class="history-text">
+                          <p>{{ speciality.title}} </p>
+                          <br>
+                          <p>{{ speciality.description}} </p>
+                          <br>
+                          <p>Creado por: {{speciality.createdbyId}} Actualizado por: {{speciality.updatedbyId}} Fecha Actualización: {{speciality.lastUpdate}} </p>
+                        </div>
+                        
+                    </div>
+
+                    <h3 class="empty-state-text" *ngIf="specialities.length === 0"> El doctor no tiene Especialidades. Aprete el boton "+" para agregar Especialidades al doctor.</h3>
+        
+                    <button routerLink="./add-speciality" class="circle-add-button button is-primary">
+                        <img src="../../../assets/plus-icon.svg">
+                    </button>
+            </div>
+            <div *ngIf=!specialities>
+                <h3 class="empty-state-text">Por favor selecciona un doctor del menu izquierdo</h3>
+            </div>
+        
+        </div>
+  
+    </div>
+  </div>

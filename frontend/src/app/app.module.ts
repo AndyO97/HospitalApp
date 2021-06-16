@@ -13,7 +13,11 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { EditPatientComponent } from './pages/edit-patient/edit-patient.component';
 import { EditHistoryComponent } from './pages/edit-history/edit-history.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
-import { NewHospitalComponent } from './pages/new-hospital/new-hospital.component'
+import { NewHospitalComponent } from './pages/new-hospital/new-hospital.component';
+import { DoctorsViewComponent } from './pages/doctors-view/doctors-view.component';
+import { NewDoctorComponent } from './pages/new-doctor/new-doctor.component';
+import { EditDoctorComponent } from './pages/edit-doctor/edit-doctor.component';
+import { AddSpecialityComponent } from './pages/add-speciality/add-speciality.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { NewHospitalComponent } from './pages/new-hospital/new-hospital.componen
     EditPatientComponent,
     EditHistoryComponent,
     MainPageComponent,
-    NewHospitalComponent
+    NewHospitalComponent,
+    DoctorsViewComponent,
+    NewDoctorComponent,
+    EditDoctorComponent,
+    AddSpecialityComponent
   ],
   imports: [
     BrowserModule,

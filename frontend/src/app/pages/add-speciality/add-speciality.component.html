@@ -1,0 +1,16 @@
+<div class="centered-content">
+    <div class="modal-box">
+        <h1 class="title">
+            Añadir una Especialidad existente al médico en cuestión
+        </h1>
+        <p>Ingrese el nombre de la Especialidad de manera completa. Si quiere crear una nueva Especialidad vaya a la sección de Especialidades.</p>
+
+        <input #SpecialityTitleInput class="input has-background-light is-medium" type="text" placeholder="Ingrese el nombre de la Especialidad">
+        <br><br>
+        <div class="buttons is-right">
+            <button class="button is-medium" routerLink="/doctors">Cancelar</button>
+            <button class="button is-primary has-text-white is-medium" (click)="addSpeciality(SpecialityTitleInput.value)">Añadir</button>
+        </div>
+
+    </div>
+</div>

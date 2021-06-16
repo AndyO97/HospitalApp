@@ -38,6 +38,16 @@ public class DoctorController {
         return ResponseEntity.ok(doctorService.getById(id));
     }
 
+    @GetMapping("getByFirstName/{firstName}")
+    public ResponseEntity<List<Doctor>> getByFirstName(@PathVariable String firstName){
+        return ResponseEntity.ok(doctorService.getByFirstName(firstName));
+    }
+
+    @GetMapping("getByLastName/{lastName}")
+    public ResponseEntity<List<Doctor>> getByLastName(@PathVariable String lastName){
+        return ResponseEntity.ok(doctorService.getByLastName(lastName));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity deleteDoctor(@PathVariable String id){
         doctorService.deleteDoctor(id);

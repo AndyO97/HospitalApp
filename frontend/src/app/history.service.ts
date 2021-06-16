@@ -15,6 +15,11 @@ export class HistoryService {
     return this.webReqService.get('patients');
   }
 
+  getDoctors(){
+    return this.webReqService.get('doctors');
+  }
+
+
   getHospitals(){
     return this.webReqService.get('hospitals');
   }
@@ -25,6 +30,14 @@ export class HistoryService {
 
   searchPatientsByLastName(lastName: string){
     return this.webReqService.get(`patients/getByLastName/${lastName}`);
+  }
+
+  searchDoctorsByFirstName(firstName: string){
+    return this.webReqService.get(`doctors/getByFirstName/${firstName}`);
+  }
+
+  searchDoctorsByLastName(lastName: string){
+    return this.webReqService.get(`doctors/getByLastName/${lastName}`);
   }
 
   createPatient(firstName: string, lastName: string, birthdayYear: number, birthdayMonth: number, birthdayDay: number, address: string, pictureUrl: string,
@@ -51,6 +64,10 @@ export class HistoryService {
     return this.webReqService.get(`history/getByPatientId/${patientId}`);
   }
 
+  getSpeciality(doctorId: string){
+    return this.webReqService.get(`speciality/getByDoctorId/${doctorId}`);
+  }
+
   createHistory(description: string, userDateYear: number, userDateMonth: number, userDateDay: number,
     patientId: string, creationDate: Date, lastUpdate: Date, createdbyId: String, updatedbyId: String){
       var userDate = new Date(userDateYear, userDateMonth-1, userDateDay, 0,0,0)
@@ -69,6 +86,33 @@ export class HistoryService {
 
   deleteHistory(id: string){
     return this.webReqService.delete(`history/${id}`);
+  }
+
+  createDoctor(firstName: string, lastName: string, birthdayYear: number, birthdayMonth: number, birthdayDay: number, address: string, pictureUrl: string,
+    creationDate: Date, lastUpdate: Date,createdbyId: string, updatedbyId: string, specialityId: string[], hospitalId: string[], patientId: string[]) {
+      var birthday = new Date(birthdayYear, birthdayMonth-1, birthdayDay, 0,0,0)
+    // We want to send a web request to create a patient
+    return this.webReqService.post('doctors', { firstName, lastName, birthday, address, pictureUrl, 
+      creationDate, lastUpdate, createdbyId, updatedbyId, specialityId, hospitalId, patientId }); 
+  }
+
+  updateDoctor(id: string, firstName: string, lastName: string, birthdayYear: number, birthdayMonth: number, birthdayDay: number, address: string, pictureUrl: string,
+    lastUpdate: Date, updatedbyId: string, specialityId: string[], hospitalId: string[], patientId: string[]) {
+      var birthday = new Date(birthdayYear, birthdayMonth-1, birthdayDay, 0,0,0)
+    // We want to send a web request to create a patient
+    return this.webReqService.patch('doctors', { id, firstName, lastName, birthday, address, pictureUrl, 
+      lastUpdate, updatedbyId, specialityId, hospitalId, patientId }); 
+  }
+
+  deleteDoctor(id: string){
+    return this.webReqService.delete(`doctors/${id}`);
+  }
+
+  addSpeciality(title: string, oneDoctorId: string){
+    // We want to send a web request to add the id of a doctor to the speciality
+    var doctorId = [];
+    doctorId.push(oneDoctorId);
+    return this.webReqService.patch('speciality/updateByTitle', { title, doctorId}); 
   }
 
   createHospital(title: string, creationDate: Date, lastUpdate: Date, createdbyId: String, updatedbyId: String, patientId: string[], doctorId: string[]){

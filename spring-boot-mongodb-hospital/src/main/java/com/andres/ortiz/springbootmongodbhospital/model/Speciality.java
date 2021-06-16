@@ -104,7 +104,20 @@ public class Speciality {
         return doctorId;
     }
 
+
     public void setDoctorId(String[] doctorId) {
         this.doctorId = doctorId;
+    }
+
+    public void addDoctorId(String doctorId) {
+        String[] array = this.getDoctorId();
+        int i=0;
+        int n = array.length;
+        String newarr[] = new String[n + 1];
+        for (i = 0; i < n; i++)
+            newarr[i] = array[i];
+
+        newarr[n] = doctorId;
+        this.doctorId=newarr;
     }
 }
