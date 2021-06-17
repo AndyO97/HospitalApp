@@ -1,0 +1,17 @@
+<div class="centered-content">
+    <div class="modal-box">
+        <h1 class="title">
+            Crear una nueva Especialidad
+        </h1>
+
+        <input #SpecialityTitleInput class="input has-background-light is-medium" type="text" placeholder="Ingrese el título">
+        <br><br>
+        <input #SpecialityDescriptionInput class="input has-background-light is-medium" type="text" placeholder="Ingrese la descripción">
+        <br><br>
+        <div class="buttons is-right">
+            <button class="button is-medium" routerLink="/specialities">Cancelar</button>
+            <button class="button is-primary has-text-white is-medium" (click)="createSpeciality(SpecialityTitleInput.value, SpecialityDescriptionInput.value, 'icon.com', 'guestId','guestId')">Crear</button>
+        </div>
+
+    </div>
+</div>

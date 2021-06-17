@@ -24,6 +24,10 @@ export class HistoryService {
     return this.webReqService.get('hospitals');
   }
 
+  getSpecialities(){
+    return this.webReqService.get('speciality');
+  }
+
   searchPatientsByFirstName(firstName: string){
     return this.webReqService.get(`patients/getByFirstName/${firstName}`);
   }
@@ -125,8 +129,18 @@ export class HistoryService {
       creationDate, lastUpdate,createdbyId, updatedbyId, patientId, doctorId}); 
   }
 
+  createSpeciality(title: string, description: string, iconUrl: string, creationDate: Date, lastUpdate: Date, createdbyId: String, updatedbyId: String, doctorId: string[]){
+    // We want to send a web request to create a hospital
+    return this.webReqService.post('speciality', { title, description, iconUrl,
+      creationDate, lastUpdate,createdbyId, updatedbyId, doctorId}); 
+  }
+
   searchHospitalsByTitle(title: string){
     return this.webReqService.get(`hospitals/getByTitle/${title}`);
+  }
+
+  searchSpecialitiesByTitle(title: string){
+    return this.webReqService.get(`speciality/getByTitle/${title}`);
   }
 
   deleteHospital(id: string){

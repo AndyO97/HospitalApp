@@ -74,6 +74,10 @@ public class SpecialityService {
     public List<Speciality> getByDoctorId(String doctorId){
         return specialityRepository.findByDoctorId(doctorId);
     }
+
+    public List<Speciality> findByTitleStartsWith(String title){
+        return specialityRepository.findByTitleStartsWith(title);
+    }
     public void deleteSpeciality(String id){
         specialityRepository.deleteById(id);
     }

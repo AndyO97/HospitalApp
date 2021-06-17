@@ -11,7 +11,6 @@ The patients page also has the option to create, update, and delete history note
 
 The doctors page only enables the user to add existing specialities to each doctor.
 
-The specialites page will enable the user in the future to creat new specialities, update them and delete them. This section is still in progress.
+The specialites page enables the user to create new specialities. In a future update it will enable the user to update them and delete them.
 
-
-The main menu con search hospital by name, create them or delete them with the trash icon.
+The main menu can search hospitals by name, create them or delete them with the trash icon.

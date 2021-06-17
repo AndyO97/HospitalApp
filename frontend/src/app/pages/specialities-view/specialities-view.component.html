@@ -1,0 +1,74 @@
+<button class="button" routerLink="/main">
+    <span class="icon is-small">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      </span>
+</button>
+<div class="centered-content">
+    <div class="patients-manager-container">
+  
+        <div class="sidebar has-background-white">
+            <h1 class="title has-text-primary">
+            Especialidades
+            </h1>
+
+            <div class="field">
+                <div class="search">
+                    <p class="control has-icons-left">
+                        <input #SearchNameInput class="input has-background-light" type="search" placeholder="Nombre">
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-search"></i>
+                        </span>
+                      </p>
+                      <button class="button is-primary has-text-white" (click)="onSearchSpecialitiesNameClick(SearchNameInput.value)">Buscar</button>
+                </div>
+            </div>
+
+            <div class="history" *ngFor="let speciality of specialities" [routerLink]="['/specialities', speciality.id]" routerLinkActive="is-active">
+                <div class="history-text" >
+                    <p>{{ speciality.title}}</p>
+                    <br>
+                    <p>{{ speciality.description}} </p>
+                </div>
+
+            </div>
+            <button class="button is-primary has-text-white" routerLink="/new-speciality">+Nueva Especialidad</button>
+        </div>
+
+  
+        <div class="history-list-container has-background-light">
+            <div>
+                <div class="top-bar">
+                    <h1 class="title has-text-primary">
+                        
+                    </h1>
+                    <div class="dropdown is-hoverable is-right">
+                        <div class="dropdown-trigger">
+                          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                            <span class="icon is-small">
+                              <i class="fas fa-cog" aria-hidden="true"></i>
+                            </span>
+                          </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                          <div class="dropdown-content">
+                            <a [routerLink]="['/edit-doctor/']" class="dropdown-item">
+                              Editar doctor
+                            </a>
+                            <a class="dropdown-item has-text-danger">
+                              Eliminar doctor
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                
+        
+
+                    
+            </div>
+            
+        
+        </div>
+  
+    </div>
+  </div>

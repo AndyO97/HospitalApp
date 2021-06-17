@@ -109,6 +109,7 @@ public class Speciality {
         this.doctorId = doctorId;
     }
 
+
     public void addDoctorId(String doctorId) {
         String[] array = this.getDoctorId();
         int i=0;

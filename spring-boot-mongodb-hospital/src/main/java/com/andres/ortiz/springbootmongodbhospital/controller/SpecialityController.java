@@ -1,5 +1,6 @@
 package com.andres.ortiz.springbootmongodbhospital.controller;
 
+import com.andres.ortiz.springbootmongodbhospital.model.Hospital;
 import com.andres.ortiz.springbootmongodbhospital.model.Speciality;
 import com.andres.ortiz.springbootmongodbhospital.service.SpecialityService;
 import lombok.RequiredArgsConstructor;
@@ -51,6 +52,11 @@ public class SpecialityController {
     @GetMapping("getByDoctorId/{doctorId}")
     public ResponseEntity<List<Speciality>> getByDoctorId(@PathVariable String doctorId){
         return ResponseEntity.ok(specialityService.getByDoctorId(doctorId));
+    }
+
+    @GetMapping("getByTitle/{title}")
+    public ResponseEntity<List<Speciality>> findByTitleStartsWith(@PathVariable String title){
+        return ResponseEntity.ok(specialityService.findByTitleStartsWith(title));
     }
 
     @DeleteMapping("/{id}")

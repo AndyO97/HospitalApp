@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PacientsViewComponent } from './pages/pacients-view/pacients-view.component';
 import { DoctorsViewComponent } from './pages/doctors-view/doctors-view.component';
+import { SpecialitiesViewComponent } from './pages/specialities-view/specialities-view.component';
 import { NewPatientComponent } from './pages/new-patient/new-patient.component';
 import { NewDoctorComponent } from './pages/new-doctor/new-doctor.component';
 import { NewHospitalComponent } from './pages/new-hospital/new-hospital.component';
@@ -10,6 +11,7 @@ import { EditPatientComponent } from './pages/edit-patient/edit-patient.componen
 import { EditDoctorComponent } from './pages/edit-doctor/edit-doctor.component';
 import { EditHistoryComponent } from './pages/edit-history/edit-history.component';
 import { NewHistoryComponent } from './pages/new-history/new-history.component';
+import { NewSpecialityComponent } from './pages/new-speciality/new-speciality.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
@@ -19,6 +21,7 @@ const routes: Routes = [
   { path: 'new-patient', component: NewPatientComponent},
   { path: 'new-doctor', component: NewDoctorComponent},
   { path: 'new-hospital', component: NewHospitalComponent},
+  { path: 'new-speciality', component: NewSpecialityComponent},
   { path: 'main', component: MainPageComponent},
   { path: 'main/:hospitalId', component: MainPageComponent},
   { path: 'edit-patient/:patientId', component: EditPatientComponent},
@@ -28,6 +31,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupPageComponent},
   { path: 'patients', component: PacientsViewComponent},
   { path: 'doctors', component: DoctorsViewComponent},
+  { path: 'specialities', component: SpecialitiesViewComponent},
+  { path: 'specialities/:specialityId', component: SpecialitiesViewComponent},
   { path: 'doctors/:doctorId', component: DoctorsViewComponent},
   { path: 'doctors/:doctorId/add-speciality', component: AddSpecialityComponent},
   { path: 'patients/:patientId', component: PacientsViewComponent},

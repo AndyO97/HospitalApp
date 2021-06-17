@@ -17,7 +17,9 @@ import { NewHospitalComponent } from './pages/new-hospital/new-hospital.componen
 import { DoctorsViewComponent } from './pages/doctors-view/doctors-view.component';
 import { NewDoctorComponent } from './pages/new-doctor/new-doctor.component';
 import { EditDoctorComponent } from './pages/edit-doctor/edit-doctor.component';
-import { AddSpecialityComponent } from './pages/add-speciality/add-speciality.component'
+import { AddSpecialityComponent } from './pages/add-speciality/add-speciality.component';
+import { SpecialitiesViewComponent } from './pages/specialities-view/specialities-view.component';
+import { NewSpecialityComponent } from './pages/new-speciality/new-speciality.component'
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { AddSpecialityComponent } from './pages/add-speciality/add-speciality.co
     DoctorsViewComponent,
     NewDoctorComponent,
     EditDoctorComponent,
-    AddSpecialityComponent
+    AddSpecialityComponent,
+    SpecialitiesViewComponent,
+    NewSpecialityComponent
   ],
   imports: [
     BrowserModule,

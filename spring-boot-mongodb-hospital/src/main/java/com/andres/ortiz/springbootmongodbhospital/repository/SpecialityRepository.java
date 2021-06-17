@@ -14,4 +14,6 @@ public interface SpecialityRepository extends MongoRepository<Speciality, String
     Optional<Speciality> findByTitle(String title);
 
     List<Speciality> findByDoctorId(String doctorId);
+
+    List<Speciality> findByTitleStartsWith(String title);
 }
