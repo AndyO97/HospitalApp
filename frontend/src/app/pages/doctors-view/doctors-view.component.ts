@@ -63,4 +63,11 @@ export class DoctorsViewComponent implements OnInit {
     });
   }
 
+  onRemoveSpecialityClick(id: string){
+    this.historyService.removeSpeciality(this.selectedDoctorId, id).subscribe((res :any)=>{
+      this.router.navigate(['/doctors']);
+      console.log(res);
+    });
+  }
+
 }

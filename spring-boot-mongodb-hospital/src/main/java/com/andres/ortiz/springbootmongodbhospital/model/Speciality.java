@@ -120,4 +120,27 @@ public class Speciality {
         newarr[n] = doctorId;
         this.doctorId=newarr;
     }
+
+    public void removeDoctorId(String doctorId) {
+        String[] array = this.getDoctorId();
+        int i=0;
+        int n = array.length;
+        boolean found = false;
+        String newarr[] = new String[n - 1];
+        while (i < n){
+            if(array[i].equals(doctorId)){
+                found = true;
+            }
+            if(found && i!=n-1){
+                newarr[i]=array[i+1];
+            }
+            else if (!found){
+                newarr[i]=array[i];
+            }
+           i++;
+        }
+        if(found)
+            this.doctorId=newarr;
+    }
+
 }

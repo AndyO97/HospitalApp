@@ -33,6 +33,11 @@ public class SpecialityController {
         return ResponseEntity.ok(specialityService.updateSpecialityByTitle(speciality));
     }
 
+    @PatchMapping("/removeDoctor/{doctorId}/{specialityId}")
+    public ResponseEntity<Speciality> removeDoctorId(@PathVariable String specialityId, @PathVariable String doctorId) {
+        return ResponseEntity.ok(specialityService.removeDoctorId(specialityId, doctorId));
+    }
+
     @GetMapping
     public ResponseEntity<List<Speciality>> getAllSpecialitys(){
         return ResponseEntity.ok(specialityService.getAllSpecialitys());

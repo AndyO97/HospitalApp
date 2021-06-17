@@ -115,6 +115,10 @@ export class HistoryService {
     return this.webReqService.patch('speciality/updateByTitle', { title, doctorId}); 
   }
 
+  removeSpeciality(doctorId: string, specialityId: string){
+    return this.webReqService.patch(`speciality/removeDoctor/${doctorId}/${specialityId}`,{});
+  }
+
   createHospital(title: string, creationDate: Date, lastUpdate: Date, createdbyId: String, updatedbyId: String, patientId: string[], doctorId: string[]){
     // We want to send a web request to create a hospital
     return this.webReqService.post('hospitals', { title,

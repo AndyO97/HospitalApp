@@ -50,6 +50,14 @@ public class SpecialityService {
         return specialityRepository.save(savedSpeciality);
     }
 
+    public Speciality removeDoctorId(String specialityId, String doctorId) {
+        Speciality savedSpeciality = specialityRepository.findById(specialityId).orElseThrow(() -> new RuntimeException(String.format("Cannot Find Speciality by id %s", specialityId)));
+
+        savedSpeciality.removeDoctorId(doctorId);
+
+        return specialityRepository.save(savedSpeciality);
+    }
+
     public List<Speciality> getAllSpecialitys(){
         return specialityRepository.findAll();
     }

@@ -79,6 +79,14 @@
                           <br>
                           <p>Creado por: {{speciality.createdbyId}} Actualizado por: {{speciality.updatedbyId}} Fecha Actualización: {{speciality.lastUpdate}} </p>
                         </div>
+
+                        <div>
+                          <button class="button is-danger" (click)="onRemoveSpecialityClick(speciality.id)">
+                            <div class="icon">
+                                <i class="fas fa-trash"></i>
+                            </div>
+                        </button>
+                        </div>
                         
                     </div>
 
